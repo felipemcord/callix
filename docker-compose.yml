@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  api:
+    build:
+      context: ./NodeSpaceXAPI
+    ports:
+      - 4000:4000
+
+  app:
+    build:
+      context: ./SpaceXAPP
+    ports:
+      - 3000:80

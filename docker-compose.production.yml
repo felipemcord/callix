@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  api:
+    build:
+      context: ./NodeSpaceXAPI
+    environment:
+      - VIRTUAL_HOST=spacexapi.felipecordeiro.dev
+      - VIRTUAL_PORT=4000
+      - LETSENCRYPT_HOST=spacexapi
+    networks: 
+      - nginx_nginx-proxy
+
+  app:
+    build:
+      context: ./SpaceXAPP
+      args:
+        - REACT_APP_API_URL=https://spacexapi.felipecordeiro.dev
+    networks: 
+      - nginx_nginx-proxy
+    environment:
+      - VIRTUAL_HOST=spacexapp.felipecordeiro.dev
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=spacexapp.felipecordeiro.dev
+
+
+networks:
+  nginx_nginx-proxy:
+    external: true
+    name: nginx_nginx-proxy
