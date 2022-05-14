@@ -1,0 +1,6 @@
+[submodule "NodeSpaceXAPI"]
+	path = NodeSpaceXAPI
+	url = https://github.com/felipemcord/NodeSpaceXAPI.git
+[submodule "SpaceXAPP"]
+	path = SpaceXAPP
+	url = https://github.com/felipemcord/SpaceXAPP.git
